@@ -5,10 +5,10 @@ class Priority:
         
         :param level: A string representing the priority level ('Low', 'Medium', 'High')
         """
-        self.level = level
+        self.level = level[0].upper()+level[1:] 
         self._level_map = {"Low": 1, "Medium": 2, "High": 3}
 
-        if level not in self._level_map:
+        if self.level not in self._level_map:
             raise ValueError("Invalid priority level. Choose 'Low', 'Medium', or 'High'.")
 
     def __str__(self):
