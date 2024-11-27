@@ -1,0 +1,44 @@
+@startuml
+|User|
+start
+:登录;
+:查看任务列表;
+
+repeat
+    :选择操作;
+    if (创建新任务?) then (yes)
+        :输入任务标题;
+        :输入任务描述;
+        :设置截止日期;
+        :选择优先级;
+        :添加标签;
+        :保存任务;
+    else (no)
+    endif
+
+    if (编辑任务?) then (yes)
+        :选择任务;
+        :修改任务标题;
+        :修改任务描述;
+        :修改截止日期;
+        :修改优先级;
+        :保存更改;
+    else (no)
+    endif
+
+    if (删除任务?) then (yes)
+        :选择任务;
+        :确认删除;
+    else (no)
+    endif
+
+    if (查看时间线?) then (yes)
+        :查看任务时间线;
+    else (no)
+    endif
+
+repeat while (是否继续操作?)
+
+:登出;
+end
+@enduml

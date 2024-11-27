@@ -1,0 +1,15 @@
+@startuml
+actor User
+
+rectangle "TODO List Software" {
+    User --> (创建任务)
+    User --> (编辑任务)
+    User --> (删除任务)
+    User --> (设置DDL提醒)
+    User --> (查看任务列表)
+    User --> (查看任务时间线)
+    User --> (搜索任务)
+    User --> (管理标签)
+    User --> (设置任务优先级)
+}
+@enduml

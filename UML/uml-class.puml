@@ -1,0 +1,48 @@
+@startuml
+class User {
+    - userId: int
+    - username: String
+    - password: String
+    + login(): void
+    + logout(): void
+    + createTask(): void
+    + editTask(): void
+    + deleteTask(): void
+}
+
+class Task {
+    - taskId: int
+    - title: String
+    - description: String
+    - dueDate: Date
+    - priority: Priority
+    - status: String
+    + markAsComplete(): void
+    + setReminder(): void
+    + addTag(): void
+}
+
+class Reminder {
+    - reminderId: int
+    - taskId: int
+    - reminderDate: Date
+    + notifyUser(): void
+}
+
+class Tag {
+    - tagId: int
+    - name: String
+    + addTask(): void
+    + removeTask(): void
+}
+
+class Priority {
+    - level: String
+}
+
+User "1" -- "0..*" Task : manages >
+Task "1" -- "0..*" Reminder : has >
+Task "0..*" -- "0..*" Tag : categorized as >
+Task "1" -- "1" Priority : has >
+
+@enduml
