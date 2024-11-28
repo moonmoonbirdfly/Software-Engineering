@@ -36,6 +36,10 @@ def main():
             description = input("Enter task description: ")
             due_date = input("Enter due date (YYYY-MM-DD): ")
             priority = input("Enter priority (Low/Medium/High): ")
+            if not (priority.upper() == 'LOW' or priority.upper() == 'MEDIUM'
+                    or priority.upper() == 'HIGH'):
+                print("Sorry, your priority input is illegal!")
+                continue
             priority_obj = Priority(priority)
             user.create_task(title, description, due_date, priority_obj)
         elif choice == "2":
