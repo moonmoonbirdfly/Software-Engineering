@@ -1,8 +1,8 @@
 from datetime import datetime
-from models.task import Task
-from models.priority import Priority
-from models.reminder import Reminder 
-from models.tag import Tag
+from task import Task
+from priority import Priority
+from reminder import Reminder 
+from tag import Tag
 class User:
     def __init__(self, user_id: int, username: str, password: str):
         self.user_id = user_id

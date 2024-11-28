@@ -1,7 +1,7 @@
 from datetime import datetime
-from models.priority import Priority
-from models.reminder import Reminder
-from models.tag import Tag
+from priority import Priority
+from reminder import Reminder
+from tag import Tag
 
 class TaskStatus:
     PENDING = "Pending"
