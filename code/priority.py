@@ -1,11 +1,18 @@
+# -*- coding: utf-8 -*-
+'''
+This is the Priority class that represents the priority level of a task.
+'''
 class Priority:
+    '''
+    This class represents the priority level of a task.
+    '''
     def __init__(self, level: str):
         """
         Initializes the Priority object with a given level.
         
         :param level: A string representing the priority level ('Low', 'Medium', 'High')
         """
-        self.level = level[0].upper()+level[1:] 
+        self.level = level[0].upper()+level[1:]
         self._level_map = {"Low": 1, "Medium": 2, "High": 3}
 
         if self.level not in self._level_map:
@@ -52,4 +59,3 @@ class Priority:
     def to_numeric(self):
         """Returns a numeric representation of the priority for sorting."""
         return self._level_map[self.level]
-

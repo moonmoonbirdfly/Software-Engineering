@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+'''
+This is Database class that stores the users.
+'''
 class Database:
     def __init__(self):
         self.users = []

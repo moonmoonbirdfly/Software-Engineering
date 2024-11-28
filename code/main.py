@@ -7,6 +7,9 @@ from priority import Priority
 from tag import Tag
 from database import Database
 def main():
+    '''
+    Main function to run the Task Manager System.
+    '''
     db = Database()
     print("Welcome to the Task Manager System!")
     username = input("Enter your username: ")

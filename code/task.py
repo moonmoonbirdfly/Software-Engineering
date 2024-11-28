@@ -1,17 +1,26 @@
+# -*- coding: utf-8 -*-
+'''
+This is the Task class that represents a task in the task manager application.
+'''
 from datetime import datetime
 from priority import Priority
 from reminder import Reminder
 from tag import Tag
 
 class TaskStatus:
+    '''
+    This class represents the status of a task.
+    ''' 
     PENDING = "Pending"
     IN_PROGRESS = "In Progress"
     COMPLETED = "Completed"
 
-
 class Task:
-
-    def __init__(self, task_id: int, title: str, description: str = '', due_date: str = "2024-12-01", priority: Priority = Priority("Low")):
+    '''
+    This class represents a task in the task manager application.
+    '''
+    def __init__(self, task_id: int, title: str, description: str = '', 
+                 due_date: str = "2024-12-01", priority: Priority = Priority("Low")):
         self.task_id = task_id
         self.title = title
         self.description = description

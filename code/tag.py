@@ -1,4 +1,11 @@
+# -*- coding: utf-8 -*-
+'''
+This is the Tag class that represents a tag in the task manager application.
+'''
 class Tag:
+    '''
+    This class represents a tag that can be associated with tasks.
+    '''
     def __init__(self, tag_id: int, name: str):
         self.tag_id = tag_id
         self.name = name

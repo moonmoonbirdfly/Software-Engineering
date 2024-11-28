@@ -1,7 +1,15 @@
-from datetime import datetime, timedelta
+# -*- coding: utf-8 -*-
+'''
+This is the Reminder class that represents a reminder for a task.
+'''
+from datetime import datetime
 
 class Reminder:
-    def __init__(self, reminder_id: int, task_id: int, reminder_date, message="Task is due soon.", repeat_interval=None):
+    '''
+    This class represents a reminder for a task.
+    '''
+    def __init__(self, reminder_id: int, task_id: int,
+                 reminder_date, message="Task is due soon.", repeat_interval=None):
         """
         :param reminder_id: Unique ID of the reminder
         :param task_id: ID of the associated task
@@ -14,8 +22,8 @@ class Reminder:
         elif isinstance(reminder_date, datetime):
             self.reminder_date = reminder_date
         else:
-            raise ValueError("Invalid date format. Use datetime object or 'YYYY-MM-DD HH:MM:SS' string.")
-        
+            raise ValueError("Invalid date format. \
+                             Use datetime object or 'YYYY-MM-DD HH:MM:SS' string.")
         if self.reminder_date < datetime.now():
             raise ValueError("Reminder date must be in the future.")
 
@@ -55,14 +63,14 @@ class Reminder:
             if new_date < datetime.now():
                 raise ValueError("New reminder date must be in the future.")
             self.reminder_date = new_date
-        
         if new_message:
             self.message = new_message
 
         if new_repeat_interval:
             self.repeat_interval = new_repeat_interval
 
-        print(f"Reminder {self.reminder_id} updated: Date={self.reminder_date}, Message='{self.message}', Repeat={self.repeat_interval}.")
+        print(f"Reminder {self.reminder_id} updated: Date={self.reminder_date}, \
+              Message='{self.message}', Repeat={self.repeat_interval}.")
 
     def check_reminder(self):
         """Check if the reminder is due and notify the user if it is."""

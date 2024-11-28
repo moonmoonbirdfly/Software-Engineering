@@ -1,9 +1,16 @@
+# -*- coding: utf-8 -*-
+'''
+This is the User class that represents a user of the task manager application.
+'''
 from datetime import datetime
 from task import Task
 from priority import Priority
-from reminder import Reminder 
+from reminder import Reminder
 from tag import Tag
 class User:
+    '''
+    This class represents a user of the task manager application.
+    '''
     def __init__(self, user_id: int, username: str, password: str):
         self.user_id = user_id
         self.username = username
@@ -14,9 +21,8 @@ class User:
         if self.username == input_username and self.password == input_password:
             print(f"Welcome, {self.username}!")
             return True
-        else:
-            print("Invalid username or password.")
-            return False
+        print("Invalid username or password.")
+        return False
 
     def logout(self):
         print(f"Goodbye, {self.username}!")
@@ -26,10 +32,9 @@ class User:
         if not isinstance(priority, Priority):
             print("Error: Priority must be a valid Priority object.")
             return
-    
         # Validate priority level (1 to 3)
         priority_value = priority.to_numeric()
-        if not (1 <= priority_value <= 3):
+        if not 1 <= priority_value <= 3:
             print("Error: Priority must be between 1 (Low) and 3 (High).")
             return
 
@@ -47,10 +52,8 @@ class User:
         task = Task(len(self.tasks) + 1, title, description, due_date, priority)
         self.tasks.append(task)
         print(f"Task '{title}' created with priority {priority}.")
-    
     def add_tag(self, task_id : int ,tag : Tag ):
         self.tasks[task_id-1].add_tag(tag)
-        
     def edit_task(self, task_id, **kwargs):
         for task in self.tasks:
             if task.task_id == task_id:
@@ -95,15 +98,14 @@ class User:
                 # Validate reminder date format
                 try:
                     reminder_date_obj = datetime.strptime(reminder_date, "%Y-%m-%d %H:%M")
-                    
                     # Ensure reminder date is in the future and before due date
                     if reminder_date_obj < datetime.now():
                         print("Error: Reminder date must be in the future.")
                         return
                     elif reminder_date_obj > task.due_date:
-                        print(f"Error: Reminder date must be before the task's due date ({task.due_date.strftime('%Y-%m-%d')}).")
+                        print(f"Error: Reminder date must be before the task's \
+                              due date ({task.due_date.strftime('%Y-%m-%d')}).")
                         return
-                    
                     # Create and add the reminder
                     reminder = Reminder(len(task.reminders) + 1, task.task_id, reminder_date)
                     task.reminders.append(reminder)
